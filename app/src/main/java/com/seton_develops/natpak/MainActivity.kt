@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var  binding: ActivityMainBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-
+    val apiKey: String = BuildConfig.API_KEY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonTest.setOnClickListener {
             requestLocation()
             binding.textviewTest.text = "james's text"
+            Log.i("TEST", apiKey)
         }
+
     }
 
     override fun onStart() {
